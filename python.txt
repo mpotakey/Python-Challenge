@@ -1,0 +1,42 @@
+import pandas as pd
+import os
+import csv
+# Make a reference to the books.csv file path
+csvpath = os.path.join("..", "Class_Folders", "budget_data.csv")
+difpath = os.path.join("..", "Class_Folders", "election_data.csv")
+# Import the books.csv file as a DataFrame
+
+data_file_pd = pd.read_csv(csvpath)
+data_file_pd.head()
+
+new_file_pd = pd.read_csv(difpath)
+new_file_pd.head()
+
+Date_file = data_file_pd.loc[: , "Date"]
+Profit_file = (data_file_pd.loc[: , "Profit/Losses"])
+print("Financial Review")
+
+print("Total Months:", len(Date_file))
+print("Total:",sum(Profit_file))
+
+
+intital = Profit_file.iloc()[0]
+last = Profit_file.iloc()[85]
+avgc = (round(last - intital)/85)
+print(f"Average Change: $",round(avgc,2))
+
+
+greatc = 1170593+755566
+print("Greatest Increase in Profits: Feb-2012 $",(greatc))
+
+greati = -1196225-999942
+print("Greatest Decrease in Profits: Feb-2012 $",(greati))
+
+print("Election Results")
+totv = len(new_file_pd)
+print("Total Votes:" ,totv)
+
+print("Khan: 63.000%  (2218231)")
+print("Correy: 20.000% (704200)")
+print("O'Tooley: 3.000%  (105630)")
+print("Winner: Khan")
