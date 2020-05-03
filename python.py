@@ -4,7 +4,6 @@ import os
 budget_data = os.path.join("Resources", "budget_data.csv")
 budget_analysis = os.path.join("analysis", "budget_analysis.txt")
 
-#place holder variables
 Months_total = 0
 specefic_change = []
 list_of_change = []
